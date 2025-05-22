@@ -5,9 +5,8 @@
 
 ## 🔨 Funcionalidades do projeto
 
-Neste projeto vamos construir um chatbot utilizando a API do Gemini. Para isso utilizaremos uma aplicação base escrita em Flask, utilizando Python e com uma Interface desenhada em HTML, CSS e JS. 
+Neste projeto foi construído um chatbot utilizando a API do Gemini. Foi utilizado uma aplicação base escrita em Flask, utilizando Python e com uma Interface desenhada em HTML, CSS e JS. 
 
-![](img/amostra.gif)
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
