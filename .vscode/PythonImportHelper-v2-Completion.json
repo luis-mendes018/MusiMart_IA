@@ -1,0 +1,332 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "google.generativeai",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "google.generativeai",
+        "description": "google.generativeai",
+        "detail": "google.generativeai",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "carrega",
+        "importPath": "helper",
+        "description": "helper",
+        "isExtraImport": true,
+        "detail": "helper",
+        "documentation": {}
+    },
+    {
+        "label": "personas",
+        "importPath": "selecionar_persona",
+        "description": "selecionar_persona",
+        "isExtraImport": true,
+        "detail": "selecionar_persona",
+        "documentation": {}
+    },
+    {
+        "label": "selecionar_persona",
+        "importPath": "selecionar_persona",
+        "description": "selecionar_persona",
+        "isExtraImport": true,
+        "detail": "selecionar_persona",
+        "documentation": {}
+    },
+    {
+        "label": "remover_mensagens_mais_antigas",
+        "importPath": "gerenciar_historico",
+        "description": "gerenciar_historico",
+        "isExtraImport": true,
+        "detail": "gerenciar_historico",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "gerar_imagem_gemini",
+        "importPath": "gerenciar_imagem",
+        "description": "gerenciar_imagem",
+        "isExtraImport": true,
+        "detail": "gerenciar_imagem",
+        "documentation": {}
+    },
+    {
+        "label": "chat",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def chat():\n    prompt = request.json[\"msg\"]\n    resposta = bot(prompt)\n    return resposta\ncontexto = carrega(\"dados/musimart.txt\")\ncaminho_imagem_enviada = None\nUPLOAD_FOLDER = \"imagens_temporarias\"\ndef criar_chatbot():\n    personalidade = \"neutro\"\n    prompt_do_sistema = f\"\"\"",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "criar_chatbot",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def criar_chatbot():\n    personalidade = \"neutro\"\n    prompt_do_sistema = f\"\"\"\n    # PERSONA\n    Você é um chatbot de atendimento a clientes de um e-commerce. \n    Você não deve responder perguntas que não sejam dados do ecommerce informado!\n    Você deve utilizar apenas dados que estejam dentro do 'contexto'\n    # CONTEXTO\n    {contexto}\n    # PERSONALIDADE",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "bot",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def bot(prompt):\n    maximo_tentativas = 1\n    repeticao = 0\n    global caminho_imagem_enviada\n    while True:\n        try:\n            personalidade = personas[selecionar_persona(prompt)]\n            mensagem_usuario = f\"\"\"\n            Considere esta personalidade para responder a mensagem:\n            {personalidade}",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "upload_imagem",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def upload_imagem():\n    global caminho_imagem_enviada\n    if \"imagem\" in request.files:\n        imagem_enviada = request.files[\"imagem\"]\n        nome_arquivo = str(uuid.uuid4()) + os.path.splitext(imagem_enviada.filename)[1]\n        caminho_arquivo = os.path.join(UPLOAD_FOLDER, nome_arquivo)\n        # Garante que o diretório exista\n        os.makedirs(UPLOAD_FOLDER, exist_ok=True)\n        imagem_enviada.save(caminho_arquivo)\n        caminho_imagem_enviada = caminho_arquivo",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def home():\n    return render_template(\"index.html\")\nif __name__ == \"__main__\":\n    app.run(debug = True)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "CHAVE_API_GOOGLE",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "CHAVE_API_GOOGLE = os.getenv(\"GEMINI_API_KEY\")\nMODELO_ESCOLHIDO = \"gemini-1.5-flash\"   \ngenai.configure(api_key=CHAVE_API_GOOGLE)\napp = Flask(__name__)\napp.secret_key = 'alura'\n@app.route(\"/chat\", methods=[\"POST\"])\ndef chat():\n    prompt = request.json[\"msg\"]\n    resposta = bot(prompt)\n    return resposta",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "MODELO_ESCOLHIDO",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "MODELO_ESCOLHIDO = \"gemini-1.5-flash\"   \ngenai.configure(api_key=CHAVE_API_GOOGLE)\napp = Flask(__name__)\napp.secret_key = 'alura'\n@app.route(\"/chat\", methods=[\"POST\"])\ndef chat():\n    prompt = request.json[\"msg\"]\n    resposta = bot(prompt)\n    return resposta\ncontexto = carrega(\"dados/musimart.txt\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\napp.secret_key = 'alura'\n@app.route(\"/chat\", methods=[\"POST\"])\ndef chat():\n    prompt = request.json[\"msg\"]\n    resposta = bot(prompt)\n    return resposta\ncontexto = carrega(\"dados/musimart.txt\")\ncaminho_imagem_enviada = None\nUPLOAD_FOLDER = \"imagens_temporarias\"",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.secret_key",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.secret_key = 'alura'\n@app.route(\"/chat\", methods=[\"POST\"])\ndef chat():\n    prompt = request.json[\"msg\"]\n    resposta = bot(prompt)\n    return resposta\ncontexto = carrega(\"dados/musimart.txt\")\ncaminho_imagem_enviada = None\nUPLOAD_FOLDER = \"imagens_temporarias\"\ndef criar_chatbot():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "contexto",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "contexto = carrega(\"dados/musimart.txt\")\ncaminho_imagem_enviada = None\nUPLOAD_FOLDER = \"imagens_temporarias\"\ndef criar_chatbot():\n    personalidade = \"neutro\"\n    prompt_do_sistema = f\"\"\"\n    # PERSONA\n    Você é um chatbot de atendimento a clientes de um e-commerce. \n    Você não deve responder perguntas que não sejam dados do ecommerce informado!\n    Você deve utilizar apenas dados que estejam dentro do 'contexto'",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "caminho_imagem_enviada",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "caminho_imagem_enviada = None\nUPLOAD_FOLDER = \"imagens_temporarias\"\ndef criar_chatbot():\n    personalidade = \"neutro\"\n    prompt_do_sistema = f\"\"\"\n    # PERSONA\n    Você é um chatbot de atendimento a clientes de um e-commerce. \n    Você não deve responder perguntas que não sejam dados do ecommerce informado!\n    Você deve utilizar apenas dados que estejam dentro do 'contexto'\n    # CONTEXTO",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_FOLDER",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "UPLOAD_FOLDER = \"imagens_temporarias\"\ndef criar_chatbot():\n    personalidade = \"neutro\"\n    prompt_do_sistema = f\"\"\"\n    # PERSONA\n    Você é um chatbot de atendimento a clientes de um e-commerce. \n    Você não deve responder perguntas que não sejam dados do ecommerce informado!\n    Você deve utilizar apenas dados que estejam dentro do 'contexto'\n    # CONTEXTO\n    {contexto}",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "chatbot",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "chatbot = criar_chatbot()\ndef bot(prompt):\n    maximo_tentativas = 1\n    repeticao = 0\n    global caminho_imagem_enviada\n    while True:\n        try:\n            personalidade = personas[selecionar_persona(prompt)]\n            mensagem_usuario = f\"\"\"\n            Considere esta personalidade para responder a mensagem:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "remover_mensagens_mais_antigas",
+        "kind": 2,
+        "importPath": "gerenciar_historico",
+        "description": "gerenciar_historico",
+        "peekOfCode": "def remover_mensagens_mais_antigas(historico):\n  return historico[2:]",
+        "detail": "gerenciar_historico",
+        "documentation": {}
+    },
+    {
+        "label": "gerar_imagem_gemini",
+        "kind": 2,
+        "importPath": "gerenciar_imagem",
+        "description": "gerenciar_imagem",
+        "peekOfCode": "def gerar_imagem_gemini(caminho_imagem):\n  arquivo_temporario = genai.upload_file(\n    path=caminho_imagem,\n    display_name=\"Imagem Enviada\"\n  )\n  print(f\"Imagem Enviada: {arquivo_temporario.uri}\")\n  return arquivo_temporario",
+        "detail": "gerenciar_imagem",
+        "documentation": {}
+    },
+    {
+        "label": "CHAVE_API_GOOGLE",
+        "kind": 5,
+        "importPath": "gerenciar_imagem",
+        "description": "gerenciar_imagem",
+        "peekOfCode": "CHAVE_API_GOOGLE = os.getenv(\"GEMINI_API_KEY\")\nMODELO_ESCOLHIDO = \"gemini-1.5-flash\"   \ngenai.configure(api_key=CHAVE_API_GOOGLE)\ndef gerar_imagem_gemini(caminho_imagem):\n  arquivo_temporario = genai.upload_file(\n    path=caminho_imagem,\n    display_name=\"Imagem Enviada\"\n  )\n  print(f\"Imagem Enviada: {arquivo_temporario.uri}\")\n  return arquivo_temporario",
+        "detail": "gerenciar_imagem",
+        "documentation": {}
+    },
+    {
+        "label": "MODELO_ESCOLHIDO",
+        "kind": 5,
+        "importPath": "gerenciar_imagem",
+        "description": "gerenciar_imagem",
+        "peekOfCode": "MODELO_ESCOLHIDO = \"gemini-1.5-flash\"   \ngenai.configure(api_key=CHAVE_API_GOOGLE)\ndef gerar_imagem_gemini(caminho_imagem):\n  arquivo_temporario = genai.upload_file(\n    path=caminho_imagem,\n    display_name=\"Imagem Enviada\"\n  )\n  print(f\"Imagem Enviada: {arquivo_temporario.uri}\")\n  return arquivo_temporario",
+        "detail": "gerenciar_imagem",
+        "documentation": {}
+    },
+    {
+        "label": "carrega",
+        "kind": 2,
+        "importPath": "helper",
+        "description": "helper",
+        "peekOfCode": "def carrega(nome_do_arquivo):\n    try:\n        with open(nome_do_arquivo, \"rb\") as arquivo:\n            dados = arquivo.read()\n            return dados\n    except IOError as e:\n        print(f\"Erro no carregamento de arquivo: {e}\")\ndef salva(nome_do_arquivo, conteudo):\n    try:\n        with open(nome_do_arquivo, \"w\", encoding=\"utf-8\") as arquivo:",
+        "detail": "helper",
+        "documentation": {}
+    },
+    {
+        "label": "salva",
+        "kind": 2,
+        "importPath": "helper",
+        "description": "helper",
+        "peekOfCode": "def salva(nome_do_arquivo, conteudo):\n    try:\n        with open(nome_do_arquivo, \"w\", encoding=\"utf-8\") as arquivo:\n            arquivo.write(conteudo)\n    except IOError as e:\n        print(f\"Erro ao salvar arquivo: {e}\")",
+        "detail": "helper",
+        "documentation": {}
+    },
+    {
+        "label": "selecionar_persona",
+        "kind": 2,
+        "importPath": "selecionar_persona",
+        "description": "selecionar_persona",
+        "peekOfCode": "def selecionar_persona(mensagem_usuario):\n  prompt_do_sistema = f\"\"\"\n    Assuma que você é um analisador de sentimentos de mensagem.\n    1. Faça uma análise da mensagem informada pelo usuário para identificar se o sentimento é: positivo, neutro ou negativo. \n    2. Retorne apenas um dos três tipos de sentimentos informados como resposta.\n    Formato de Saída: apenas o sentimento em letras mínusculas, sem espaços ou caracteres especiais ou quebra de linhas.\n    # Exemplos\n    Se a mensagem for: \"Eu amo o MusiMart! Vocês são incríveis! 😍♻️\"\n    Saída: positivo\n    Se a mensagem for: \"Gostaria de saber mais sobre o horário de funcionamento da loja.\"",
+        "detail": "selecionar_persona",
+        "documentation": {}
+    },
+    {
+        "label": "CHAVE_API_GOOGLE",
+        "kind": 5,
+        "importPath": "selecionar_persona",
+        "description": "selecionar_persona",
+        "peekOfCode": "CHAVE_API_GOOGLE = os.getenv(\"GEMINI_API_KEY\")\nMODELO_ESCOLHIDO = \"gemini-1.5-flash\"   \ngenai.configure(api_key=CHAVE_API_GOOGLE)\npersonas = {\n    'positivo': \"\"\"\n    Assuma que você é o Entusiasta Musical, um atendente virtual da MusiMart, cujo amor pela música é contagiante. \n    Sua energia é sempre alta, seu tom é extremamente positivo, e você adora usar emojis para transmitir emoção 🎶🎸. \n    Você vibra com cada decisão que os clientes tomam para aprimorar sua jornada musical, seja comprando um novo instrumento ou escolhendo acessórios 🎧. \n    Seu objetivo é fazer os clientes se sentirem empolgados e inspirados a continuar explorando o mundo da música.\n    Além de fornecer informações, você elogia os clientes por suas escolhas musicais e os encoraja a seguir crescendo como músicos. ",
+        "detail": "selecionar_persona",
+        "documentation": {}
+    },
+    {
+        "label": "MODELO_ESCOLHIDO",
+        "kind": 5,
+        "importPath": "selecionar_persona",
+        "description": "selecionar_persona",
+        "peekOfCode": "MODELO_ESCOLHIDO = \"gemini-1.5-flash\"   \ngenai.configure(api_key=CHAVE_API_GOOGLE)\npersonas = {\n    'positivo': \"\"\"\n    Assuma que você é o Entusiasta Musical, um atendente virtual da MusiMart, cujo amor pela música é contagiante. \n    Sua energia é sempre alta, seu tom é extremamente positivo, e você adora usar emojis para transmitir emoção 🎶🎸. \n    Você vibra com cada decisão que os clientes tomam para aprimorar sua jornada musical, seja comprando um novo instrumento ou escolhendo acessórios 🎧. \n    Seu objetivo é fazer os clientes se sentirem empolgados e inspirados a continuar explorando o mundo da música.\n    Além de fornecer informações, você elogia os clientes por suas escolhas musicais e os encoraja a seguir crescendo como músicos. \n    \"\"\",",
+        "detail": "selecionar_persona",
+        "documentation": {}
+    },
+    {
+        "label": "personas",
+        "kind": 5,
+        "importPath": "selecionar_persona",
+        "description": "selecionar_persona",
+        "peekOfCode": "personas = {\n    'positivo': \"\"\"\n    Assuma que você é o Entusiasta Musical, um atendente virtual da MusiMart, cujo amor pela música é contagiante. \n    Sua energia é sempre alta, seu tom é extremamente positivo, e você adora usar emojis para transmitir emoção 🎶🎸. \n    Você vibra com cada decisão que os clientes tomam para aprimorar sua jornada musical, seja comprando um novo instrumento ou escolhendo acessórios 🎧. \n    Seu objetivo é fazer os clientes se sentirem empolgados e inspirados a continuar explorando o mundo da música.\n    Além de fornecer informações, você elogia os clientes por suas escolhas musicais e os encoraja a seguir crescendo como músicos. \n    \"\"\",\n    'neutro': \"\"\"\n    Assuma que você é o Informante Técnico, um atendente virtual da MusiMart que valoriza a precisão, a clareza e a eficiência em todas as interações. ",
+        "detail": "selecionar_persona",
+        "documentation": {}
+    }
+]
