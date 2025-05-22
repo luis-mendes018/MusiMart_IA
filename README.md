@@ -10,7 +10,7 @@ Neste projeto foi construído um chatbot utilizando a API do Gemini. Foi utiliza
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
-As técnicas e tecnologias utilizadas pra isso são:
+As técnicas e tecnologias que foram utilizadas pra isso são:
 
 - Programação em Python
 - Construção de Aplicações em Flask
